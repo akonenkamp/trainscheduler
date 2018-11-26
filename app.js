@@ -1,12 +1,12 @@
 var index = 0;
 
 var config = {
-    apiKey: "AIzaSyCu8HmbVJ5eX4b6t0adN2IjAMqIWPa2STI",
-    authDomain: "trainproj-746f2.firebaseapp.com",
-    databaseURL: "https://trainproj-746f2.firebaseio.com",
-    projectId: "trainproj-746f2",
-    storageBucket: "",
-    messagingSenderId: "613806141023"
+    apiKey: "AIzaSyCMjILXGsFMNh6fVTWN93fpaKdJdfpiphE",
+    authDomain: "wednesday-night-class.firebaseapp.com",
+    databaseURL: "https://wednesday-night-class.firebaseio.com",
+    projectId: "wednesday-night-class",
+    storageBucket: "wednesday-night-class.appspot.com",
+    messagingSenderId: "550515055714"
 };
 
 firebase.initializeApp(config);
@@ -36,5 +36,8 @@ $("#formID").on("submit", function (event) {
 
 });
 
-
+database.ref().orderByChild("dateAdded").on("child_added", function (childSnapshot){
+    var update = $("<button>").html("<span class='glyphicon glyphicon-edit'></span>").addClass("updateButton").attr("data-index", index).attr("data-key", childSnapshot.key);
+    var removeButton = $("<button>").html("<span class='glyphicon glyphicon-remove'></span>").addClass("removeButton").attr("data-index", index).attr("data-key", childSnapshot.key);
+})
 
